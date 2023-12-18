@@ -1,0 +1,44 @@
+student: # map
+  id: 213
+  height: 70.5 # dot
+  weight: 70,5 # comma -> not sure
+  firstName: '"h. p.' # escape leading quote
+  lastName: "'s Lovecraft" # escape leading apostrophe
+  isAlive: true
+  birth: 1995-02-02 # several date/time stamp formats available
+  registered: 2020-01-12T02:50:00Z
+  lastLoggedIn: 2023-12-18 8:45:12 +2 # -> 2023-12-18T06:45:12.000Z
+  enrolledIn: # sequence -> list
+  - 5001 # indentation can technically be on same level as parent
+  - 4009
+  - 1234
+
+students: # nested
+  - id: 213
+    height: 70.5 # dot
+    weight: 70,5 # comma -> not sure
+    firstName: '"h. p.' # escape leading quote
+    lastName: "'s Lovecraft" # escape leading apostrophe
+    isAlive: true
+    birth: 1995-02-02 # several date/time stamp formats available
+    registered: 2020-01-12T02:50:00Z
+    lastLoggedIn: 2023-12-18 8:45:12 +2 # -> 2023-12-18T06:45:12.000Z
+    enrolledIn: # sequence -> list
+      - 5001
+      - 4009
+      - 1234
+  # values can be on new line
+  -
+    id: 213
+    weight: 70,5 # comma
+    height: 70.5 # dot
+    firstName: '"h. p.' # escape leading quote
+    lastName: "'s Lovecraft" # escape leading apostrophe
+    isAlive: true
+    birth: 1995-02-02 # several date/time stamp formats available
+    registered: 2020-01-12T02:50:00Z
+    lastLoggedIn: 2023-12-18 8:45:12 +2 # -> 2023-12-18T06:45:12.000Z
+    enrolledIn: # sequence -> list
+      - 5001
+      - 4009
+      - 1234
