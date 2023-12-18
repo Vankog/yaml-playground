@@ -1,0 +1,42 @@
+block style:
+  # inline-comments are not allowed, removes new-lines
+  address NoLineBreaks: 1301 Race Street,
+    removes additional indentations
+    removes trailing spaces->
+    US
+    no final new-line
+  address TemplateString: | # keeps new-lines
+    1301 Race Street, # keeps in-line comments as text
+        keeps additional indentations
+    keeps trailing spaces:    
+    US
+    adds final new-line
+  address Folded: > # removes new-lines
+    1301 Race Street, # keeps in-line comments as text
+    cannot use indentations (see next)
+    keeps trailing spaces:    
+    US
+    adds final new-line
+  address Folded IndentationForcesTemplateString: > # adding additional indentation => behaves like | template string instead
+    1301 Race Street, #keeps new-lines & in-line comments as text
+        keeps additional indentations
+    keeps trailing spaces:    
+    US
+    adds final new-line
+  asdf: 123
+
+flow style:
+  address quotes: "1301 Race Street, # removes new-lines & keeps in-line comments as text
+        removes additional indentations
+    keeps trailing spaces:    
+    US" # no final new-line
+  address apostrophes: 'same as ""'
+  enrolledIn: [ 5001, 4009, #comment
+                1234 ]
+  students:
+    - {
+      id: 213, firstName: '"h. p.', lastName: "'s Lovecraft",
+      isAlive: true,
+      enrolledIn: [ 5001, 4009, 1234 ] # can't use block-style lists inside flow style
+    }
+    - { id: 4444, key with null value }
