@@ -1,0 +1,18 @@
+#comment
+
+# structure by indentation via whitespace. number of spaces is irrelevant.
+
+student:
+ id: 130
+ key with null value:
+ first name: Hans
+ l"ast`' name: Wurst # can use quotes inline
+ # "some key: foo  # cannot use single " at start
+ '"some key': foo
+ # 'other data: 2.000  # cannot use single ' at start
+ "'other data": 2.000
+ a#b: c
+ # a #b: c # cannot use {space}# inline
+ 'a #b': c
+ #test: bar # cannot use # at start
+ '#test': bar
