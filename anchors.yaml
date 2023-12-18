@@ -1,0 +1,46 @@
+courses:
+  - 5001: &course5001
+      id: &curCourse 5001 # gets overwritten below
+      name: programming
+      duration: 4
+      type: engineering
+  - 4009: &course4009
+      id: 4009
+      name: genetics
+      duration: 5
+      type: biology
+      # specific value
+      isWeekend: false
+  - 1234: &course1234
+      id: 1234
+      name: counting
+      duration: 3
+      type: math
+      # specific value
+      countingTill: 100
+
+hobbyCourse:
+  - computerHobby:
+      <<: *course5001 # merge into
+      duration: 9 # overwriting merged value (can also be before merge statement)
+      isWeekend: true # additional entry
+  - geneticsAndCountingHobby:
+      <<: [*course4009, *course1234] # first has precedence for duplicate values
+      # common value from course4009
+      # isWeekend -> false from course4009
+      # countingTill -> 100 from course1234
+
+students: # nested
+  - id: 213
+    enrolledIn: [ 5001, 4009, 1234 ]
+    currentCourse: *curCourse # references most recent declaration -> 5001
+    currentCourseDetails: *course5001
+
+  - id: 123
+    enrolledIn: [ 5001, 4009, 1234 ]
+    currentCourse: &curCourse 4009  # curCourse got overwritten
+    currentCourseDetails: *course5001
+
+  - { id: 555, enrolledIn: [ 5001, 4009, 1234 ],
+      currentCourse: *curCourse, #-> overwritten with 4009
+      currentCourseDetails: *course4009 }
